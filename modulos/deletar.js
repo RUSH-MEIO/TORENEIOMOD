@@ -1,7 +1,7 @@
-import { salvarDados, DBMASTER, torneios} from "./salvar.js"
+import { salvarDados, DBMASTER, torneios, setTorneios, carregarDados} from "./salvar.js"
 import { exibirMenu, prompt } from "../Torneio.js";
 
-export async function deletarTorneios() {
+export function deletarTorneios() {
     console.clear();
     if (torneios.length <= 0) {
       console.log(
@@ -18,9 +18,8 @@ export async function deletarTorneios() {
       );
     });
     console.log("==========================================\n");
-    const INPIDDelete = await pergunta(
-      "Digite o timestamp (ID) do TORNEIO que deseja deletar\n"
-    );
+    console.log("Digite o timestamp (ID) do TORNEIO que deseja deletar")
+    const INPIDDelete = prompt()
     const idParaDeletar = parseInt(INPIDDelete, 10);
     if (isNaN(idParaDeletar)) {
       console.log("Por favor, digite um ID válido.");
@@ -28,7 +27,8 @@ export async function deletarTorneios() {
       return;
     }
     const initialLength = torneios.length;
-    torneios = torneios.filter((torneio) => torneio.id !== idParaDeletar);
+    const novosTorneios = torneios.filter((torneio) => torneio.id !== idParaDeletar);
+    setTorneios(novosTorneios);
     if (torneios.length < initialLength) {
       console.clear();
       console.log(`Torneio com ID ${idParaDeletar} deletado com sucesso!`);

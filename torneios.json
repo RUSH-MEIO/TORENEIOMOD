@@ -1,18 +1,29 @@
 [
   {
-    "id": 1754318094560,
-    "nome": "eef",
+    "id": 1754321945194,
+    "nome": "efef",
     "jogo": "efef",
-    "data": "12/12/2000",
+    "data": "12/12/2222",
     "participantes": [
-      "efef"
+      "efefef",
+      "efefefewf"
+    ],
+    "partidas": [
+      {
+        "partidaId": 1754323010903,
+        "torneioId": 1754321945194,
+        "torneioNome": "efef",
+        "jogador1": "efefef",
+        "jogador2": "efefefewf",
+        "vencedor": "efefefewf"
+      }
     ]
   },
   {
-    "id": 1754318147822,
-    "nome": "porta",
+    "id": 1754322386365,
+    "nome": "efef",
     "jogo": "cs2",
-    "data": "12/12/2000",
+    "data": "12/12/2222",
     "participantes": [
       "efefef"
     ]

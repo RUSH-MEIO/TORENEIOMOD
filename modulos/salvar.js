@@ -2,6 +2,10 @@ import fs from 'fs';
 export let torneios = [];
 export const DBMASTER = "torneios.json";
 
+export function setTorneios(novosTorneios) {
+    torneios = novosTorneios;
+}
+
 export function salvarDados(nomeArquivo, dados, callback) {
     const jsonString = JSON.stringify(dados, null, 2);
     fs.writeFile(nomeArquivo, jsonString, (err) => {
