@@ -1,0 +1,43 @@
+import { salvarDados, DBMASTER, torneios, setTorneios, carregarDados} from "./salvar.js"
+import { exibirMenu, prompt } from "../Torneio.js";
+
+export function deletarTorneios() {
+    console.clear();
+    if (torneios.length <= 0) {
+      console.log(
+        "----------------------------\nNão há torneios registrados para serem deletados."
+      );
+      prompt("Pressione Enter para retornar ao menu...");
+      exibirMenu()
+      return;
+    }
+    console.log("========TORNEIOS A SEREM DELETADOS========");
+    torneios.forEach((torneio) => {
+      console.log(
+        `ID: ${torneio.id} || NOME: ${torneio.nome} | JOGO: ${torneio.jogo} | DATA: ${torneio.data} | JOGADORES: ${torneio.participantes}`
+      );
+    });
+    console.log("==========================================\n");
+    console.log("Digite o timestamp (ID) do TORNEIO que deseja deletar")
+    const INPIDDelete = prompt()
+    const idParaDeletar = parseInt(INPIDDelete, 10);
+    if (isNaN(idParaDeletar)) {
+      console.log("Por favor, digite um ID válido.");
+      exibirMenu();
+      return;
+    }
+    const initialLength = torneios.length;
+    const novosTorneios = torneios.filter((torneio) => torneio.id !== idParaDeletar);
+    setTorneios(novosTorneios);
+    if (torneios.length < initialLength) {
+      console.clear();
+      console.log(`Torneio com ID ${idParaDeletar} deletado com sucesso!`);
+    } else {
+      console.clear();
+      console.log(`Torneio com ID ${idParaDeletar} não encontrado.`);
+    }
+    salvarDados(DBMASTER, torneios, () => {
+      prompt("Pressione ENTER para Retornar");
+      exibirMenu()
+    });
+  }

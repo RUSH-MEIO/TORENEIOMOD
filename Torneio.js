@@ -1,21 +1,30 @@
+import PromptSync from "prompt-sync";
+export const prompt = PromptSync({ sigint: true });
+import { DBMASTER, carregarDados, setTorneios } from "./modulos/salvar.js";
+import { adicionarTorneios } from "./modulos/adicionar.js"
+import { deletarTorneios } from "./modulos/deletar.js";
+import { listarTorneios } from "./modulos/Listar.js";
+import { filtrarTorneios } from "./modulos/FiltrarTorneio.js";
+import { registrarPartidas } from "./modulos/RegistarPartida.js";
+
 export function exibirMenu() {
   console.log(
     "=========MENU=========\n1-Adicionar Torneio\n2-Listar Torneios\n3-Filtrar por Jogo\n4-Deletar Torneios\n5-Registrar Partidas\n6-Listar Partidas de um Torneio\n0-Sair do programa"
   );
-  rl.question("Insira a opção desejada.\n", (opcaoMenu) => {
+    let opcaoMenu = prompt("Insira a opção desejada.",)
     opcaoMenu = parseInt(opcaoMenu, 10);
     switch (opcaoMenu) {
       case 1:
-        adicionarTorneios();
+        adicionarTorneios(); //
         break;
       case 2:
-        listarTorneios();
+        listarTorneios(); //
         break;
       case 3:
-        filtrarTorneios();
+        filtrarTorneios(); //
         break;
       case 4:
-        deletarTorneios();
+        deletarTorneios(); //
         break;
       case 5:
         registrarPartidas();
@@ -28,5 +37,15 @@ export function exibirMenu() {
         console.log("Insira uma opção válida!\n");
         exibirMenu();
     }
+  };
+
+
+export function pepino(){
+    console.log("Iniciando o sistema...");
+  carregarDados(DBMASTER, (dadostorneio) => {
+  setTorneios(dadostorneio);
+  exibirMenu();
   });
 }
+
+pepino()
