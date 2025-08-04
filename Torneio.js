@@ -4,8 +4,12 @@ import { DBMASTER, carregarDados, setTorneios } from "./modulos/salvar.js";
 import { adicionarTorneios } from "./modulos/adicionar.js"
 import { deletarTorneios } from "./modulos/deletar.js";
 import { listarTorneios } from "./modulos/Listar.js";
-import { filtrarTorneios } from "./modulos/FiltrarTorneio.js";
+import { FiltrarPorJogo } from "./modulos/FiltrarPorJogo.js";
 import { registrarPartidas } from "./modulos/RegistarPartida.js";
+
+export function LimparTela() {
+  console.clear();
+}
 
 export function exibirMenu() {
   console.log(
@@ -21,7 +25,7 @@ export function exibirMenu() {
         listarTorneios(); //
         break;
       case 3:
-        filtrarTorneios(); //
+        FiltrarPorJogo(); //
         break;
       case 4:
         deletarTorneios(); //
