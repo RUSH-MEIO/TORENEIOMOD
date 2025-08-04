@@ -1,4 +1,4 @@
-function exibirMenu() {
+export function exibirMenu() {
   console.log(
     "=========MENU=========\n1-Adicionar Torneio\n2-Listar Torneios\n3-Filtrar por Jogo\n4-Deletar Torneios\n5-Registrar Partidas\n6-Listar Partidas de um Torneio\n0-Sair do programa"
   );
