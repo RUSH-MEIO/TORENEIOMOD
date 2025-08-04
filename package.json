@@ -1,0 +1,20 @@
+{
+  "name": "toreneiomod",
+  "version": "1.0.0",
+  "description": "]",
+  "main": "Torneio.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RUSH-MEIO/TORENEIOMOD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RUSH-MEIO/TORENEIOMOD/issues"
+  },
+  "homepage": "https://github.com/RUSH-MEIO/TORENEIOMOD#readme"
+}
