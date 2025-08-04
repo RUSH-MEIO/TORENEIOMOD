@@ -1,8 +1,14 @@
+import PromptSync from "prompt-sync";
+export const prompt = PromptSync({ sigint: true });
+import { DBMASTER, carregarDados, torneios } from "./modulos/salvar.js"
+import { adicionarTorneios } from "./modulos/adicionar.js"
+import { deletarTorneios } from "./modulos/deletar.js";
+
 export function exibirMenu() {
   console.log(
     "=========MENU=========\n1-Adicionar Torneio\n2-Listar Torneios\n3-Filtrar por Jogo\n4-Deletar Torneios\n5-Registrar Partidas\n6-Listar Partidas de um Torneio\n0-Sair do programa"
   );
-  rl.question("Insira a opção desejada.\n", (opcaoMenu) => {
+    let opcaoMenu = prompt("Insira a opção desejada.",)
     opcaoMenu = parseInt(opcaoMenu, 10);
     switch (opcaoMenu) {
       case 1:
@@ -28,5 +34,15 @@ export function exibirMenu() {
         console.log("Insira uma opção válida!\n");
         exibirMenu();
     }
+  };
+
+
+export function pepino(){
+    console.log("Iniciando o sistema...");
+  carregarDados(DBMASTER, (dadostorneio) => {
+  torneios = dadostorneio;
+  exibirMenu();
   });
 }
+
+pepino()
