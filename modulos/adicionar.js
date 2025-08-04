@@ -1,8 +1,8 @@
 import { salvarDados, DBMASTER, torneios} from "./salvar.js"
-import { exibirMenu, prompt } from "../Torneio.js";
+import { exibirMenu, prompt, LimparTela} from "../Torneio.js";
   
 export async function adicionarTorneios() {
-    console.clear();
+    LimparTela()
     console.log("==== 🏆 TORNEIO 🏆 ===");
   
     const INPTorneioNome = await prompt(
@@ -70,11 +70,12 @@ export async function adicionarTorneios() {
     };
     torneios.push(torneio);
     salvarDados(DBMASTER, torneios, () => {
-      console.clear();
+      LimparTela()
       console.log(
         `========== Torneio criado com SUCESSO! ========== \nNome do Torneio: ${nome} | Jogo: ${jogo} | Data: ${DataFormatada} | Participantes: ${playersarray}`
       );
       prompt("Pressione ENTER para Retornar");
+      LimparTela()
       exibirMenu()
     });
   }

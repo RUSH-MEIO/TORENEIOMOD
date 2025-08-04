@@ -1,8 +1,8 @@
 import { salvarDados, DBMASTER, torneios, setTorneios, carregarDados} from "./salvar.js"
-import { exibirMenu, prompt } from "../Torneio.js";
+import { exibirMenu, prompt, LimparTela} from "../Torneio.js";
 
 export function deletarTorneios() {
-    console.clear();
+    LimparTela();
     if (torneios.length <= 0) {
       console.log(
         "----------------------------\nNão há torneios registrados para serem deletados."
@@ -30,14 +30,15 @@ export function deletarTorneios() {
     const novosTorneios = torneios.filter((torneio) => torneio.id !== idParaDeletar);
     setTorneios(novosTorneios);
     if (torneios.length < initialLength) {
-      console.clear();
+      LimparTela();
       console.log(`Torneio com ID ${idParaDeletar} deletado com sucesso!`);
     } else {
-      console.clear();
+      LimparTela();
       console.log(`Torneio com ID ${idParaDeletar} não encontrado.`);
     }
     salvarDados(DBMASTER, torneios, () => {
       prompt("Pressione ENTER para Retornar");
+      LimparTela()
       exibirMenu()
     });
   }
