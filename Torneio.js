@@ -1,6 +1,6 @@
 import PromptSync from "prompt-sync";
 export const prompt = PromptSync({ sigint: true });
-import { DBMASTER, carregarDados, setTorneios } from "./modulos/salvar.js";
+import { DBMASTER, carregarDados, Torneiospepino } from "./modulos/salvar.js";
 import { adicionarTorneios } from "./modulos/adicionar.js"
 import { deletarTorneios } from "./modulos/deletar.js";
 import { listarTorneios } from "./modulos/Listar.js";
@@ -47,7 +47,7 @@ export function exibirMenu() {
 export function pepino(){
     console.log("Iniciando o sistema...");
   carregarDados(DBMASTER, (dadostorneio) => {
-  setTorneios(dadostorneio);
+  Torneiospepino(dadostorneio);
   exibirMenu();
   });
 }

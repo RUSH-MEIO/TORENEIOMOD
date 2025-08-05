@@ -2,7 +2,7 @@ import fs from 'fs';
 export let torneios = [];
 export const DBMASTER = "torneios.json";
 
-export function setTorneios(novosTorneios) {
+export function Torneiospepino(novosTorneios) {
     torneios = novosTorneios;
 }
 

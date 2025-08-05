@@ -1,5 +1,5 @@
 import { exibirMenu, prompt } from "../Torneio.js";
-import { torneios, salvarDados, DBMASTER, setTorneios } from "./salvar.js";
+import { torneios, salvarDados, DBMASTER, Torneiospepino } from "./salvar.js";
 
 export function registrarPartidas() {
     console.clear();
@@ -131,7 +131,7 @@ export function final(novaPartida, torneio) {
     const indexTorneio = torneios.findIndex(t => t.id === torneio.id);
     if (indexTorneio !== -1) {
         torneios[indexTorneio] = torneio;
-        setTorneios([...torneios]);
+        Torneiospepino([...torneios]);
     }
 
     console.log(

@@ -1,4 +1,4 @@
-import { salvarDados, DBMASTER, torneios, setTorneios, carregarDados} from "./salvar.js"
+import { salvarDados, DBMASTER, torneios, Torneiospepino, carregarDados} from "./salvar.js"
 import { exibirMenu, prompt, LimparTela} from "../Torneio.js";
 
 export function deletarTorneios() {
@@ -28,7 +28,7 @@ export function deletarTorneios() {
     }
     const initialLength = torneios.length;
     const novosTorneios = torneios.filter((torneio) => torneio.id !== idParaDeletar);
-    setTorneios(novosTorneios);
+    Torneiospepino(novosTorneios);
     if (torneios.length < initialLength) {
       LimparTela();
       console.log(`Torneio com ID ${idParaDeletar} deletado com sucesso!`);
