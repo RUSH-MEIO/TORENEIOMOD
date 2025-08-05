@@ -35,8 +35,11 @@ export function registrarPartidas() {
         return;
     }
 
+    const IDTORNEIOTIME = Date.now();
+    const IDTORNEIO = Math.floor(IDTORNEIOTIME / 60000)
+
     let novaPartida = {
-        partidaId: Date.now(),
+        partidaId: IDTORNEIO,
         torneioId: torneioSelecionado.id,
         torneioNome: torneioSelecionado.nome,
         jogador1: null,

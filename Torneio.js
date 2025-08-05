@@ -12,10 +12,11 @@ export function LimparTela() {
 }
 
 export function exibirMenu() {
+  LimparTela()
   console.log(
     "=========MENU=========\n1-Adicionar Torneio\n2-Listar Torneios\n3-Filtrar por Jogo\n4-Deletar Torneios\n5-Registrar Partidas\n6-Listar Partidas de um Torneio\n0-Sair do programa"
   );
-    let opcaoMenu = prompt("Insira a opção desejada.",)
+    let opcaoMenu = prompt("Insira a opção desejada: ")
     opcaoMenu = parseInt(opcaoMenu, 10);
     switch (opcaoMenu) {
       case 1:

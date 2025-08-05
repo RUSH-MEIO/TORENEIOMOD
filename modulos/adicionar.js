@@ -58,7 +58,8 @@ export async function adicionarTorneios() {
       day: "2-digit",
     });
   
-    const IDTORNEIO = Date.now();
+    const IDTORNEIOTIME = Date.now();
+    const IDTORNEIO = Math.floor(IDTORNEIOTIME / 60000)
     const playersarray = playersString.split(",").map((player) => player.trim());
   
     const torneio = {
