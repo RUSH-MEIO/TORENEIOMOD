@@ -6,13 +6,14 @@ import { deletarTorneios } from "./modulos/deletar.js";
 import { listarTorneios } from "./modulos/Listar.js";
 import { FiltrarPorJogo } from "./modulos/FiltrarPorJogo.js";
 import { registrarPartidas } from "./modulos/RegistarPartida.js";
+import { ListarPartidasDoTorneio } from "./modulos/ListarPartidas.js";
 
 export function LimparTela() {
   console.clear();
 }
 
 export function exibirMenu() {
-  LimparTela()
+  console.clear()
   console.log(
     "=========MENU=========\n1-Adicionar Torneio\n2-Listar Torneios\n3-Filtrar por Jogo\n4-Deletar Torneios\n5-Registrar Partidas\n6-Listar Partidas de um Torneio\n0-Sair do programa"
   );
@@ -35,7 +36,8 @@ export function exibirMenu() {
         registrarPartidas();
         break;
       case 6:
-        ListarPartidasDoTorneio();
+        ListarPartidasDoTorneio()
+        break;
       case 0:
         process.exit();
       default:
